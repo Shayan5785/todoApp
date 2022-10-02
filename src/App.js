@@ -1,34 +1,34 @@
 import Navbar from './components/Navbar'
 import CardContainer from './components/CardContainer'
 import * as React from 'react';
+import db from './firebase';
+// import { collection, getDocs } from "firebase/firestore"; 
+import { onSnapshot, collection } from "firebase/firestore";
+import { useEffect } from 'react'
+
+
+
+
+
 
 function App() {
+  
+  const getNotes = collection(db, "notes")
+  useEffect(() => {
+    onSnapshot(getNotes, snapshot => {
+      const data = snapshot.docs.map(doc => {
+        return {
+          id: doc.id,
+          ...doc.data()
+        }
+      })
+      console.log(data);
+    });
 
+  }, [])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // console.log(db);
+  
 
   let notes = [
     {title:"schedule",
@@ -58,20 +58,6 @@ function App() {
     <div className="App">
       <Navbar/>
       <CardContainer notes={notes} />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
   );
 }
