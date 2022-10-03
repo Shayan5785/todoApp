@@ -5,9 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-
 function Cards( { title,desciption,img } ) {
-
   return (
     <Card sx={{ display: 'flex' , width:'400px', height:'150px',margin:'10px' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>

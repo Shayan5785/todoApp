@@ -19,10 +19,7 @@ function Navbar() {
         </Fab>
       </Box>
 
-
     </Container>
-
-
   )
 }
 
